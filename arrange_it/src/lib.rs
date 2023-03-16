@@ -5,8 +5,7 @@ pub fn arrange_phrase(phrase: &str) -> String {
             .filter(|c| c.is_digit(10))
             .collect::<String>()
     });
-    let new_string = words.join(" ");
-    let filtered_string = new_string
+    let filtered_string = words.join(" ")
         .chars()
         .filter(|c| !c.is_digit(10))
         .collect();
