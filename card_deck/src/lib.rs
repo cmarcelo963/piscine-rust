@@ -54,22 +54,16 @@ impl Rank {
             }
 	}
 }
-#[derive(Debug)]
+#[derive(Debug, PartialEq)]
 pub struct Card {
 	pub suit: Suit,
 	pub rank: Rank,
 }
 pub fn winner_card(card: &Card) -> bool {
-    let winning_card = Card {suit:Suit::Spade, rank:Rank::Ace};
-    if card.suit == winning_card.suit {
-        if card.rank == winning_card.rank {
-            true
-        } else {
-            false
-        }
-    } else {
-        false
-    }
+    Card {
+        suit: Suit::Spade,
+        rank: Rank::Ace,
+    } == *card
 }
 
 #[cfg(test)]
