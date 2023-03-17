@@ -86,7 +86,7 @@ mod tests {
 	println!("Your card is {:?}", your_card);
 
 	// Now if the card is an Ace of Spades print "You are the winner"
-	if winner_card(&your_card) {
+	if card_deck::winner_card(&your_card) {
 		println!("You are the winner!");
 	}
     }
