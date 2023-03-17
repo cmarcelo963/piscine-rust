@@ -19,13 +19,16 @@ pub fn mean(list: &Vec<i32>) -> f64 {
 pub fn median(list: &Vec<i32>) -> i32 {
     let mut sorted = list.clone();
     sorted.sort();
+    println!("Vec {:?}", sorted);
     let mid_index: usize = sorted.len() / 2;
     let is_odd: bool = if sorted.len() % 2 == 0 {false} else {true};
     if is_odd {
         return sorted[mid_index]
     } else {
-        let mid2_index: usize = mid_index + 1;
-        return sorted[mid2_index]
+        let mid2_index: usize = mid_index - 1;
+        let result = sorted[mid_index] + sorted[mid2_index];
+        println!("1st: {}, 2nd: {}", sorted[mid_index], sorted[mid2_index]);
+        return result / 2
     }
 }
 
@@ -44,7 +47,7 @@ mod tests {
 
     #[test]
     fn it_works() {
-	    let v = vec![4, 7, 5, 2, 5, 1, 3,];
+	    let v = vec![2, 1, 5, 2, 7, 4];
         println!("mean {}", mean(&v));
         println!("median {}", median(&v));
         println!("mode {}", mode(&v));
