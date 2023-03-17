@@ -2,4 +2,3 @@
 !/Cargo.toml
 **/target/*
 **/Cargo.lock
-.vscode/launch.json
