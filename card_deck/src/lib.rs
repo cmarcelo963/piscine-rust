@@ -9,7 +9,7 @@ pub enum Suit {
 
 impl Suit {
 	pub fn random() -> Suit {
-        let rng = rand::thread_rng().gen_range(1..4);
+        let rng = rand::thread_rng().gen_range(1,4);
         Suit::translate(rng)
 	}
     
@@ -32,7 +32,7 @@ pub enum Rank {
 }
 impl Rank {
 	pub fn random() -> Rank {
-        let value: u8 = rand::thread_rng().gen_range(1..14);
+        let value: u8 = rand::thread_rng().gen_range(1,14);
         Rank::translate(value)
 	}
     
@@ -86,7 +86,7 @@ mod tests {
 	println!("Your card is {:?}", your_card);
 
 	// Now if the card is an Ace of Spades print "You are the winner"
-	if card_deck::winner_card(&your_card) {
+	if winner_card(&your_card) {
 		println!("You are the winner!");
 	}
     }
