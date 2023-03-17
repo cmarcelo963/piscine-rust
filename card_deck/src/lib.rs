@@ -61,14 +61,14 @@ pub struct Card {
 }
 pub fn winner_card(card: &Card) -> bool {
     let winning_card = Card {suit:Suit::Spade, rank:Rank::Ace};
-    if card.suit != winning_card.suit {
-        false
-    } else {
-        if card.rank != winning_card.rank {
-            false
-        } else {
+    if card.suit == winning_card.suit {
+        if card.rank == winning_card.rank {
             true
+        } else {
+            false
         }
+    } else {
+        false
     }
 }
 
