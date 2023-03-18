@@ -7,7 +7,6 @@ pub fn is_permutation(s1: &str, s2: &str) -> bool {
     let s2chars = s2.chars();
     let mut s1char_map: HashMap<char, i32> = HashMap::new();
     let mut s2char_map: HashMap<char, i32> = HashMap::new();
-
     for c in s1chars {
         *s1char_map.entry(c).or_insert(0) += 1;
     }
