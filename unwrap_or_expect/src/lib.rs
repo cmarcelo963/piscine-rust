@@ -1,4 +1,3 @@
-use unwrap_or_expect;
 pub enum Security {
 	Unknown,
 	High,
