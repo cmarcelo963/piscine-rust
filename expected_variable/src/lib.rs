@@ -13,9 +13,9 @@ pub fn expected_variable(string_to_compare: &str, expected_string: &str) -> Opti
         let distance  = edit_distance::edit_distance(string_to_compare, expected_string);
         let alikeness = 100 - (distance / expected_string.len() * 100);
         if alikeness > 50 {
-            return Some(alikeness.to_string() + "%")
+            Some(alikeness.to_string() + "%")
         } else {
-            return None
+            None
         }
     }
 }
