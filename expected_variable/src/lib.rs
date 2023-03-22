@@ -5,7 +5,7 @@ pub use edit_distance::edit_distance;
 
 pub fn expected_variable(string_to_compare: &str, expected_string: &str) -> Option<String> {
     if string_to_compare == "" || expected_string == "" {
-        None
+        return None
     }
     if !string_to_compare.is_camel_lowercase() && string_to_compare.contains('_'){
         None
@@ -13,9 +13,9 @@ pub fn expected_variable(string_to_compare: &str, expected_string: &str) -> Opti
         let distance  = edit_distance::edit_distance(string_to_compare, expected_string);
         let alikeness = 100 - (distance / expected_string.len() * 100);
         if alikeness > 50 {
-            Some(alikeness.to_string() + "%")
+            return Some(alikeness.to_string() + "%")
         } else {
-            None
+            return None
         }
     }
 }
