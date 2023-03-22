@@ -1,6 +1,10 @@
 pub mod mall;
-pub use mall::{floor::store::{ employee::{Employee, self}}, guard::Guard};
-pub use crate::floor::store::Store;
+pub use mall::floor::store::{employee};
+pub use mall::floor::store::Store;
+pub use mall::*;
+pub use crate::floor::*;
+pub use crate::store::*;
+pub use mall::{floor::store::{ employee::{Employee}}, guard::Guard};
 
 pub use crate::mall::*;
 
