@@ -1,53 +1,46 @@
 use std::collections::HashMap;
 use std::num::ParseFloatError;
 
-struct Flag {
-    short_hand: String,
-    long_hand: String,
-    desc: String,
+pub struct Flag {
+    pub short_hand: String,
+    pub long_hand: String,
+    pub desc: String,
 }
 
 impl Flag {
-    fn opt_flag(short_hand: &str, desc: &str) -> Flag {
-        let long_hand = format!("--{}", short_hand);
-        let short_hand = format!("-{}", short_hand.chars().next().unwrap());
-        Flag { short_hand, long_hand, desc: desc.to_owned() }
-    }
-}
-
-type Callback = fn(f64, f64) -> Result<f64, ParseFloatError>;
-
-struct FlagsHandler {
-    flags: HashMap<(String, String), Callback>,
-}
-
-impl FlagsHandler {
-    fn add_flag(&mut self, flag: Flag, callback: Callback) {
-        let key = (flag.short_hand.clone(), flag.long_hand.clone());
-        self.flags.insert(key, callback);
-    }
-
-    fn exec_func(&self, short_hand: &str, long_hand: &str, args: &[String]) -> Result<String, String> {
-        if let Some(callback) = self.flags.get(&(short_hand.to_owned(), long_hand.to_owned())) {
-            if args.len() != 2 {
-                return Err("Invalid number of arguments".to_owned());
-            }
-            let a = args[0].parse::<f64>();
-            let b = args[1].parse::<f64>();
-            match (a, b) {
-                (Ok(a), Ok(b)) => Ok(callback(a, b).to_string()),
-                _ => Err("Invalid arguments".to_owned()),
-            }
-        } else {
-            Err("Flag not found".to_owned())
+    pub fn opt_flag(l_h: &str, d: &str) -> Flag {
+        Flag {
+            short_hand: "-".to_string() + &l_h.chars().nth(0).unwrap().to_string(),
+            long_hand: "--".to_string() + l_h,
+            desc: d.to_string(),
         }
     }
 }
 
-fn div(a: f64, b: f64) -> Result<f64, ParseFloatError> {
-    Ok(a / b)
+pub type Callback = fn(&str, &str) -> Result<String, ParseFloatError> ;
+
+pub struct FlagsHandler {
+    pub flags: HashMap<(String, String), Callback>,
 }
 
-fn rem(a: f64, b: f64) -> Result<f64, ParseFloatError> {
-    Ok(a % b)
+impl FlagsHandler {
+    pub fn add_flag(&mut self, flag: (String, String), func: Callback) {
+        self.flags.insert(flag, func);
+    }
+    pub fn exec_func(&mut self, flag: (String, String), argv: &[&str]) -> String {
+        let result = self.flags.get(&flag).unwrap()(argv[0], argv[1]);
+        match result {
+            Ok(result) => result,
+            Err(error) => error.to_string(),
+        }
+    }
+}
+
+pub fn div(a: &str, b: &str) -> Result<String, ParseFloatError> {
+    let divided = a.parse::<f32>()? / b.parse::<f32>()?;
+    Ok(divided.to_string())
+}
+pub fn rem(a: &str, b: &str) -> Result<String, ParseFloatError> {
+    let remainder = a.parse::<f32>()? % b.parse::<f32>()?;
+    Ok(remainder.to_string())
 }
