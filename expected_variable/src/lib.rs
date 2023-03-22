@@ -4,7 +4,7 @@ pub use edit_distance::edit_distance;
 
 
 pub fn expected_variable(string_to_compare: &str, expected_string: &str) -> Option<String> {
-    if !string_to_compare.is_camel_lowercase() || string_to_compare.contains('_'){
+    if !string_to_compare.is_camel_lowercase() && string_to_compare.contains('_'){
         None
     } else {
         let distance  = edit_distance::edit_distance(string_to_compare, expected_string);
