@@ -11,6 +11,7 @@ pub fn expected_variable(string_to_compare: &str, expected_string: &str) -> Opti
         None
     } else {
         let distance  = edit_distance::edit_distance(string_to_compare, expected_string);
+        println!("String to compare: {}, String expected: {}", string_to_compare, expected_string);
         let alikeness = 100 - (distance / expected_string.len() * 100);
         println!("{}", alikeness);
         if alikeness > 50 {
