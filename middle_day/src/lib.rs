@@ -1,5 +1,5 @@
 use chrono::{Datelike, NaiveDate};
-use chrono::Weekday as wd;
+pub use chrono::Weekday as wd;
 
 pub fn middle_day(year: i32) -> Option<wd> {
     let number_of_days_in_year = if NaiveDate::from_ymd_opt(year, 1, 1).is_some() {366} else {365};
@@ -18,6 +18,7 @@ mod tests {
 
     #[test]
     fn it_works() {
-        println!("{:?}", middle_day(1022).unwrap());
+ println!("{:?}", middle_day(1022).unwrap());
+
     }
 }
