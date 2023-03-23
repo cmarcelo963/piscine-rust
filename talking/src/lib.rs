@@ -2,7 +2,7 @@ pub fn talking(text: &str) -> &str {
     if text == "" || text.len() == 0 {
         return "Just say something!"
     }
-    println!("{}", text);
+    println!("Print the string: {}", text);
     let filtered_input = text.chars().filter(|c| c.is_alphabetic());
     let mut is_all_caps = false;
 
