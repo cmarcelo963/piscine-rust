@@ -1,4 +1,7 @@
 pub fn talking(text: &str) -> &str {
+    if text == "" {
+        return "Just say something!"
+    }
     println!("{}", text);
     let filtered_input = text.chars().filter(|c| c.is_alphabetic());
     let mut is_all_caps = true;
@@ -11,15 +14,12 @@ pub fn talking(text: &str) -> &str {
             break;
         }
     }
-
-    if is_all_caps && text.chars().last() == Some('!') {
-        return "There is no need to yell, calm down!"
-    } else if is_all_caps && text.chars().last() == Some('?') {
+    if is_all_caps && text.chars().last() == Some('?') {
         return "Quiet, I am thinking!"
-    } else if text.chars().last() == Some('?') {
+    } else if is_all_caps {
+        return "There is no need to yell, calm down!"
+    } else  if text.chars().last() == Some('?') {
         return "Sure."
-    } else if text == "" {
-        return "Just say something!"
     }
     return "Interesting"
 }
