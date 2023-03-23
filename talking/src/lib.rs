@@ -24,8 +24,9 @@ pub fn talking(text: &str) -> &str {
         return "There is no need to yell, calm down!"
     } else  if text.chars().last() == Some('?') {
         return "Sure."
+    } else {
+        return "Interesting"
     }
-    return "Interesting"
 }
 
 
@@ -38,7 +39,8 @@ mod tests {
         // println!("{:?}", talking("JUST DO IT!"));
         // println!("{:?}", talking("Hello how are you?"));
         // println!("{:?}", talking("WHAT'S GOING ON?"));
+        let the_string: String = Default::default();
         println!("{:?}", talking("7?"));
-        println!("{:?}", talking(""));
+        println!("{:?}", talking(&the_string));
     }
 }
