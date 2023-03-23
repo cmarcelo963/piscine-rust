@@ -19,7 +19,7 @@ pub fn rotate(input: &str, key: i8) -> String {
                     rotated_ascii = if rotated_ascii < 65 {rotated_ascii + 26} else {rotated_ascii};
                     result.push(rotated_ascii as u8 as char)
                 }else {
-                    rotated_ascii = if rotated_ascii < 65 {rotated_ascii + 26} else {rotated_ascii};
+                    rotated_ascii = if rotated_ascii < 65 {rotated_ascii + 65} else {rotated_ascii};
                     result.push(rotated_ascii as u8 as char)
                 }
             }
@@ -53,7 +53,7 @@ mod tests {
         //     "Your cypher wil be: {}",
         //     rotate("Testing with numbers 1 2 3", 4)
         // );
-        println!("Your cypher wil be: {}", rotate("Let's eat, Grandma!", -14));
+        println!("Your cypher wil be: {}", rotate("Let's eat, Grandma!", 21));
         // println!("The letter \"a\" becomes: {}", rotate("a", -1));      
     }
 }
