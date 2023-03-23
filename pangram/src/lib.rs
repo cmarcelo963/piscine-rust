@@ -5,6 +5,9 @@ pub fn is_pangram(s: &str) -> bool {
             return false
         }
     }
+    if !lowercase_of_string.contains('z') {
+        return false
+    }
     true
 }
 
@@ -16,7 +19,7 @@ mod tests {
     fn it_works() {
         println!(
             "{}",
-            is_pangram("the quick brown fox jumps over the lazy dog!")
+            is_pangram("the quick brown fox jumps over the lay dog!")
         );
         println!("{}", is_pangram("this is not a pangram!"));
     }
