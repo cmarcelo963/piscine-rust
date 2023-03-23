@@ -1,5 +1,5 @@
 pub fn talking(text: &str) -> &str {
-    println!("{}", text)
+    println!("{}", text);
     if is_all_caps(text) && text.chars().last() == Some('!') {
         return "There is no need to yell, calm down!"
     } else if is_all_caps(text) && text.chars().last() == Some('?') {
