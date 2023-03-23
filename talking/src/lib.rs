@@ -1,17 +1,19 @@
 pub fn talking(text: &str) -> &str {
-    if text == "" {
+    if text == "" || text.len() == 0 {
         return "Just say something!"
     }
     println!("{}", text);
     let filtered_input = text.chars().filter(|c| c.is_alphabetic());
-    let mut is_all_caps = true;
+    let mut is_all_caps = false;
 
-     for c in filtered_input {
+    for c in filtered_input {
         // Check if the character is an uppercase letter
         if !c.is_uppercase() {
             // If not, return false
             is_all_caps = false;
             break;
+        } else {
+            is_all_caps = true;
         }
     }
     if is_all_caps && text.chars().last() == Some('?') {
@@ -33,10 +35,10 @@ mod tests {
 
     #[test]
     fn it_works() {
-        println!("{:?}", talking("JUST DO IT!"));
-        println!("{:?}", talking("Hello how are you?"));
-        println!("{:?}", talking("WHAT'S GOING ON?"));
-        println!("{:?}", talking("something"));
-        println!("{:?}", talking("I LOVE YELLING"));
+        // println!("{:?}", talking("JUST DO IT!"));
+        // println!("{:?}", talking("Hello how are you?"));
+        // println!("{:?}", talking("WHAT'S GOING ON?"));
+        println!("{:?}", talking("7?"));
+        println!("{:?}", talking(""));
     }
 }
