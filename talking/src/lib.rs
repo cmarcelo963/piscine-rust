@@ -16,6 +16,8 @@ pub fn talking(text: &str) -> &str {
     }
     if is_all_caps && text.chars().last() == Some('?') {
         return "Quiet, I am thinking!"
+    } else if text.chars().last() == Some('?') {
+        return "Sure."
     } else if is_all_caps {
         return "There is no need to yell, calm down!"
     } else  if text.chars().last() == Some('?') {
