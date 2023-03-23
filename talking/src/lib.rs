@@ -1,5 +1,5 @@
 pub fn talking(text: &str) -> &str {
-    println!("Print the string: |{}|", text);
+    println!("Print the string: ||{}||", text);
     if text.is_empty() || text == " " {
         return "Just say something!"
     }
