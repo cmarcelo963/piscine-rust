@@ -2,6 +2,7 @@ pub fn stars(n: u32) -> String {
     let mut counter = 1;
     let mut number_of_stars = 2;
     let mut result = String::new();
+    println!("{}", n);
     loop { 
         if counter != n {
             number_of_stars *= 2;
