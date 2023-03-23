@@ -11,7 +11,7 @@ pub fn talking(text: &str) -> &str {
     }
     return "Interesting"
 }
-fn is_all_caps(input: &str) -> bool {
+pub fn is_all_caps(input: &str) -> bool {
     // Filter out non-alphabetic characters
     let filtered_input = input.chars().filter(|c| c.is_alphabetic());
 
