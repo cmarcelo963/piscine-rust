@@ -1,6 +1,6 @@
 pub fn talking(text: &str) -> &str {
     println!("Print the string: ||{}half", text);
-    if text.is_empty() || text == " " {
+    if text.is_empty() || text.chars().all(|c| c.is_ascii_whitespace()) {
         return "Just say something!"
     }
     let filtered_input = text.chars().filter(|c| c.is_alphabetic());
@@ -41,6 +41,6 @@ mod tests {
         // println!("{:?}", talking("WHAT'S GOING ON?"));
         // let the_string: String = Default::default();
         // println!("{:?}", talking("7?"));
-        println!("{:?}", talking(" "));
+        println!("{:?}", talking("        "));
     }
 }
