@@ -1,6 +1,6 @@
 pub fn talking(text: &str) -> &str {
-    println!("Print the string: {}", text);
-    if text.is_empty() {
+    println!("Print the string: |{}|", text);
+    if text.is_empty() || text.contains(' ') {
         return "Just say something!"
     }
     let filtered_input = text.chars().filter(|c| c.is_alphabetic());
