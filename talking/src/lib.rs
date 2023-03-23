@@ -1,11 +1,12 @@
 pub fn talking(text: &str) -> &str {
+    println!("{}", text)
     if is_all_caps(text) && text.chars().last() == Some('!') {
         return "There is no need to yell, calm down!"
     } else if is_all_caps(text) && text.chars().last() == Some('?') {
         return "Quiet, I am thinking!"
     } else if text.chars().last() == Some('?') {
         return "Sure."
-    } else if text.len() == 0 {
+    } else if text == "" {
         return "Just say something!"
     }
     return "Interesting"
