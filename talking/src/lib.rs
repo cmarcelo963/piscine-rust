@@ -1,8 +1,8 @@
 pub fn talking(text: &str) -> &str {
-    if text == "" || text.len() == 0 {
+    println!("Print the string: {}", text);
+    if text.is_empty() {
         return "Just say something!"
     }
-    println!("Print the string: {}", text);
     let filtered_input = text.chars().filter(|c| c.is_alphabetic());
     let mut is_all_caps = false;
 
