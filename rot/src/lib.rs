@@ -1,5 +1,5 @@
 pub fn rotate(input: &str, key: i8) -> String {
-    println!("{}",input);
+    println!("input: {}, key: {}",input, key);
     let mut result: String = String::new();
     for char in input.chars() {
         if char.is_ascii_alphabetic() {
@@ -53,7 +53,7 @@ mod tests {
         //     "Your cypher wil be: {}",
         //     rotate("Testing with numbers 1 2 3", 4)
         // );
-        // println!("Your cypher wil be: {}", rotate("Testing", -14));
+        println!("Your cypher wil be: {}", rotate("Let's eat, Grandma!", -14));
         // println!("The letter \"a\" becomes: {}", rotate("a", -1));      
     }
 }
