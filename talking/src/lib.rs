@@ -1,6 +1,6 @@
 pub fn talking(text: &str) -> &str {
     println!("Print the string: |{}|", text);
-    if text.is_empty() || text.contains(' ') {
+    if text.is_empty() || text == " " {
         return "Just say something!"
     }
     let filtered_input = text.chars().filter(|c| c.is_alphabetic());
@@ -39,8 +39,8 @@ mod tests {
         // println!("{:?}", talking("JUST DO IT!"));
         // println!("{:?}", talking("Hello how are you?"));
         // println!("{:?}", talking("WHAT'S GOING ON?"));
-        let the_string: String = Default::default();
-        println!("{:?}", talking("7?"));
-        println!("{:?}", talking(&the_string));
+        // let the_string: String = Default::default();
+        // println!("{:?}", talking("7?"));
+        println!("{:?}", talking(" "));
     }
 }
