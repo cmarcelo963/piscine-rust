@@ -1,4 +1,5 @@
 pub fn rotate(input: &str, key: i8) -> String {
+    println!("{}",input);
     let mut result: String = String::new();
     for char in input.chars() {
         if char.is_ascii_alphabetic() {
