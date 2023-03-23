@@ -3,21 +3,6 @@ pub fn stars(n: u32) -> String {
         Some(pow) => "*".repeat(pow as usize),
         None => "".to_string(),
     }
-    // let mut counter = 1;
-    // let mut number_of_stars: u64= 2;
-    // let mut result = String::new();
-    // loop { 
-    //     if counter != n {
-    //         number_of_stars *= 2;
-    //         counter += 1;
-    //     } else {
-    //         break
-    //     }
-    // }
-    // for _ in 0..number_of_stars {
-    //     result += "*"
-    // }
-    // result
 }
 
 #[cfg(test)]
