@@ -7,25 +7,28 @@ pub fn pig_latin(text: &str) -> String {
             }
     }
     let mut new_string = text.to_string();
-    // let mut previous_char = '\0';
-    let mut index = 0;
+    let mut next_char = false;
     loop {
-        for char in text.chars() {
-            if index == 0 && is_vowel(char){
-                break;
-            } else {
-                index += 1;
-            }
-            // if previous_char == 'q' && char == 'u' {
-            //     new_string.remove(0);
-            //     new_string.push(char);
-            //     previous_char = char;
-            //     continue;
-            // }
-            if !is_vowel(char) {
+        for (i, char) in text.chars().enumerate() {
+            if next_char && char == 'q' {
                 new_string.remove(0);
                 new_string.push(char);
-                previous_char = char;
+                continue
+            }
+            if next_char && char == 'u' {
+                new_string.remove(0);
+                new_string.push(char);
+                next_char = false;
+            }
+            if !is_vowel(char) && text.len() > i + 2 && &text[i+1..i+3] == "qu" {
+                new_string.remove(0);
+                new_string.push(char);
+                next_char = true;
+            }else if i == 0 && is_vowel(char){
+                break;
+            }else if !is_vowel(char) {
+                new_string.remove(0);
+                new_string.push(char);
                 continue;
             } else { 
                 break
