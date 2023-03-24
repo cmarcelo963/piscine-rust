@@ -1,4 +1,5 @@
 pub fn pig_latin(text: &str) -> String {
+    println!("{}", text);
     fn is_vowel(c: char) -> bool {
         match c {
                 'a' | 'e' | 'i' | 'o' | 'u' | 'A' | 'E' | 'I' | 'O' | 'U' => true,
