@@ -7,7 +7,7 @@ pub fn pig_latin(text: &str) -> String {
             }
     }
     let mut new_string = text.to_string();
-    let mut previous_char = '\0';
+    // let mut previous_char = '\0';
     let mut index = 0;
     loop {
         for char in text.chars() {
@@ -16,12 +16,12 @@ pub fn pig_latin(text: &str) -> String {
             } else {
                 index += 1;
             }
-            if previous_char == 'q' && char == 'u' {
-                new_string.remove(0);
-                new_string.push(char);
-                previous_char = char;
-                continue;
-            }
+            // if previous_char == 'q' && char == 'u' {
+            //     new_string.remove(0);
+            //     new_string.push(char);
+            //     previous_char = char;
+            //     continue;
+            // }
             if !is_vowel(char) {
                 new_string.remove(0);
                 new_string.push(char);
@@ -44,6 +44,6 @@ mod tests {
 
     #[test]
     fn it_works() {
-        println!("{}", pig_latin(&String::from("apple")));
+        println!("{}", pig_latin(&String::from("queen")));
     }
 }
